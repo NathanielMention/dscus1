@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/app";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./components/themeBtn/ThemeContext";
+import "./styles/index.scss";
 import Reducer from "./redux/reducers/index";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";

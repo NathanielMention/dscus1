@@ -1,8 +1,17 @@
 import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { getUser } from "../redux/actions/userActions";
+import { postMessage } from "../redux/actions/chatActions";
+import socket from "../config/socketConfig";
+import "../styles/App.scss";
 
 //pages for app
+import Home from "./home/Home";
+import Login from "./login/Login";
+import Register from "./register/Register";
+import Profile from "./profile/Profile";
+import PageNotFound from "./PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
