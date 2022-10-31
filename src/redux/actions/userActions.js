@@ -8,7 +8,7 @@ import {
 
 export async function registerUser(data) {
   try {
-    const response = await fetch("http://localhost:5000/register", {
+    const response = await fetch("https://dscus.onrender.com:5000/register", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -30,7 +30,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
-    const response = await fetch("http://localhost:5000/login", {
+    const response = await fetch("https://dscus.onrender.com:5000/login", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
