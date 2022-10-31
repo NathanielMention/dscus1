@@ -51,7 +51,7 @@ router.post(
     pool.query(
       `INSERT INTO user_table (username, password, avatar)
             VALUES ($1, $2, $3)
-            RETURNING id, avatar`,
+            RETURNING id, username, avatar`,
       [username, hashedPassword, avatar],
       (err, results) => {
         if (err) {
