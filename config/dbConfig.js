@@ -11,6 +11,7 @@ const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PAS
 
 const pool = new Pool({
   connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
+  ssl: { rejectUnauthorized: false },
   ssl: isProduction,
   max: 20,
   connectionTimeoutMillis: 30000,
