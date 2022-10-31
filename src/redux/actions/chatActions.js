@@ -43,15 +43,18 @@ export function createRoom(roomName) {
   return async function (dispatch) {
     dispatch(createRoomRequest());
     try {
-      const response = await fetch("http://localhost:5000/createroom", {
-        method: "POST",
-        body: JSON.stringify({ roomName }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://dscusbackend.onrender.com/createroom",
+        {
+          method: "POST",
+          body: JSON.stringify({ roomName }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
       const responseData = await response.json();
       dispatch(createRoomSuccess(responseData));
     } catch (error) {
@@ -63,7 +66,7 @@ export function createRoom(roomName) {
 export function removeRoom(roomId) {
   return async function (dispatch) {
     try {
-      await fetch("http://localhost:5000/removeroom", {
+      await fetch("https://dscusbackend.onrender.com/removeroom", {
         method: "POST",
         body: JSON.stringify({ roomId }),
         headers: {
@@ -96,14 +99,17 @@ export function joinRoom(roomId) {
   return async function (dispatch) {
     dispatch(joinRoomRequest());
     try {
-      const response = await fetch(`http://localhost:5000/room/${roomId}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        `https://dscusbackend.onrender.com/room/${roomId}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
       const responseData = await response.json();
       dispatch(joinRoomSuccess(responseData));
     } catch (error) {
@@ -128,7 +134,7 @@ export function getRoomsSuccess(payload) {
 export function getRooms() {
   return async function (dispatch) {
     try {
-      const response = await fetch(`http://localhost:5000/rooms`, {
+      const response = await fetch(`https://dscusbackend.onrender.com/rooms`, {
         method: "GET",
         headers: {
           Accept: "application/json",

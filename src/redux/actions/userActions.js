@@ -59,7 +59,7 @@ export async function loginUser(data) {
 
 export async function logoutUser() {
   try {
-    const response = await fetch("http://localhost:5000/logout", {
+    const response = await fetch("https://dscusbackend.onrender.com/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -86,7 +86,7 @@ export async function logoutUser() {
 
 export async function getUser() {
   try {
-    const response = await fetch("http://localhost:5000/user", {
+    const response = await fetch("https://dscusbackend.onrender.com/user", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -107,12 +107,15 @@ export async function getUser() {
 
 export async function updateAvatar(base64EncodedImage) {
   try {
-    const response = await fetch("http://localhost:5000/api/upload", {
-      method: "POST",
-      body: JSON.stringify({ data: base64EncodedImage }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://dscusbackend.onrender.com/api/upload",
+      {
+        method: "POST",
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      }
+    );
 
     const responseData = await response.json();
     console.log(responseData);

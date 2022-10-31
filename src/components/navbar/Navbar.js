@@ -17,7 +17,7 @@ const Navbar = () => {
 
     if (e.target.value) {
       const response = await fetch(
-        `http://localhost:5000/search?q=${e.target.value}`,
+        `https://dscusbackend.onrender.com/search?q=${e.target.value}`,
         {
           method: "GET",
           headers: {
