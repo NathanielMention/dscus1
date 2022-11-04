@@ -8,7 +8,12 @@ const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
 const server = require("http").createServer(app);
-const io = require("socket.io")(server, { pingTimeout: 60000 });
+const io = require("socket.io")(server, {
+  cors: {
+    origin: ["http://localhost:5001", process.env.SOCKET_SERVER],
+  },
+  pingTimeout: 60000,
+});
 const pgSession = require("connect-pg-simple")(session);
 const { pool } = require("./config/dbConfig");
 const { connectionString } = require("./config/dbConfig");
