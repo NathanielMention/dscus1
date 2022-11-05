@@ -79,7 +79,8 @@
     "st": "node --optimize_for_size --max_old_space_size=460 index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run start --prefix ../",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "eslintConfig": {
     "extends": [
