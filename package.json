@@ -72,8 +72,8 @@
     "style-loader": "^3.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node --optimize_for_size --max_old_space_size=460 react-scripts start",
+    "build": "node --optimize_for_size --max_old_space_size=460 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "st": "node --optimize_for_size --max_old_space_size=460 index.js",
