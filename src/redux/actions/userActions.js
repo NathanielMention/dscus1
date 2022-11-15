@@ -8,7 +8,7 @@ import {
 
 export async function registerUser(data) {
   try {
-    const response = await fetch("https://dscusbackend.onrender.com/register", {
+    const response = await fetch("https://dscus1.herokuapp.com/register", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -30,7 +30,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
-    const response = await fetch("https://dscusbackend.onrender.com/login", {
+    const response = await fetch("https://dscus1.herokuapp.com/login", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ export async function loginUser(data) {
 
 export async function logoutUser() {
   try {
-    const response = await fetch("https://dscusbackend.onrender.com/logout", {
+    const response = await fetch("https://dscus1.herokuapp.com/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -86,7 +86,7 @@ export async function logoutUser() {
 
 export async function getUser() {
   try {
-    const response = await fetch("https://dscusbackend.onrender.com/user", {
+    const response = await fetch("https://dscus1.herokuapp.com/user", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -107,15 +107,12 @@ export async function getUser() {
 
 export async function updateAvatar(base64EncodedImage) {
   try {
-    const response = await fetch(
-      "https://dscusbackend.onrender.com/api/upload",
-      {
-        method: "POST",
-        body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      }
-    );
+    const response = await fetch("https://dscus1.herokuapp.com/api/upload", {
+      method: "POST",
+      body: JSON.stringify({ data: base64EncodedImage }),
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
 
     const responseData = await response.json();
     console.log(responseData);

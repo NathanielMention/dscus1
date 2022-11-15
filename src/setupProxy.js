@@ -3,7 +3,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "https://dscusbackend.onrender.com",
+      target: "https://dscus1.herokuapp.com/",
       changeOrigin: true,
     })
   );

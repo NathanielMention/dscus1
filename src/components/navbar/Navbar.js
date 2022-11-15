@@ -17,7 +17,7 @@ const Navbar = () => {
 
     if (e.target.value) {
       const response = await fetch(
-        `https://dscusbackend.onrender.com/search?q=${e.target.value}`,
+        `https://dscus1.herokuapp.com/search?q=${e.target.value}`,
         {
           method: "GET",
           headers: {

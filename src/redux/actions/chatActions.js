@@ -43,18 +43,15 @@ export function createRoom(roomName) {
   return async function (dispatch) {
     dispatch(createRoomRequest());
     try {
-      const response = await fetch(
-        "https://dscusbackend.onrender.com/createroom",
-        {
-          method: "POST",
-          body: JSON.stringify({ roomName }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
+      const response = await fetch("https://dscus1.herokuapp.com/createroom", {
+        method: "POST",
+        body: JSON.stringify({ roomName }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
       const responseData = await response.json();
       dispatch(createRoomSuccess(responseData));
     } catch (error) {
@@ -66,7 +63,7 @@ export function createRoom(roomName) {
 export function removeRoom(roomId) {
   return async function (dispatch) {
     try {
-      await fetch("https://dscusbackend.onrender.com/removeroom", {
+      await fetch("https://dscus1.herokuapp.com//removeroom", {
         method: "POST",
         body: JSON.stringify({ roomId }),
         headers: {
@@ -100,7 +97,7 @@ export function joinRoom(roomId) {
     dispatch(joinRoomRequest());
     try {
       const response = await fetch(
-        `https://dscusbackend.onrender.com/room/${roomId}`,
+        `https://dscus1.herokuapp.com/room/${roomId}`,
         {
           method: "GET",
           headers: {
@@ -134,7 +131,7 @@ export function getRoomsSuccess(payload) {
 export function getRooms() {
   return async function (dispatch) {
     try {
-      const response = await fetch(`https://dscusbackend.onrender.com/rooms`, {
+      const response = await fetch(`https://dscus1.herokuapp.com/rooms`, {
         method: "GET",
         headers: {
           Accept: "application/json",
