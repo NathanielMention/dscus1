@@ -43,7 +43,7 @@ export function createRoom(roomName) {
   return async function (dispatch) {
     dispatch(createRoomRequest());
     try {
-      const response = await fetch("/createroom", {
+      const response = await fetch("/api/createroom", {
         method: "POST",
         body: JSON.stringify({ roomName }),
         headers: {
@@ -63,7 +63,7 @@ export function createRoom(roomName) {
 export function removeRoom(roomId) {
   return async function (dispatch) {
     try {
-      await fetch("/removeroom", {
+      await fetch("/api/removeroom", {
         method: "POST",
         body: JSON.stringify({ roomId }),
         headers: {
@@ -96,7 +96,7 @@ export function joinRoom(roomId) {
   return async function (dispatch) {
     dispatch(joinRoomRequest());
     try {
-      const response = await fetch(`/room/${roomId}`, {
+      const response = await fetch(`/api/room/${roomId}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -128,7 +128,7 @@ export function getRoomsSuccess(payload) {
 export function getRooms() {
   return async function (dispatch) {
     try {
-      const response = await fetch(`/rooms`, {
+      const response = await fetch(`/api/rooms`, {
         method: "GET",
         headers: {
           Accept: "application/json",

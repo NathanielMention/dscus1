@@ -8,7 +8,7 @@ import {
 
 export async function registerUser(data) {
   try {
-    const response = await fetch("/register", {
+    const response = await fetch("/api/register", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -30,7 +30,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
-    const response = await fetch("/login", {
+    const response = await fetch("/api/login", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ export async function loginUser(data) {
 
 export async function logoutUser() {
   try {
-    const response = await fetch("/logout", {
+    const response = await fetch("/api/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -86,7 +86,7 @@ export async function logoutUser() {
 
 export async function getUser() {
   try {
-    const response = await fetch("/user", {
+    const response = await fetch("/api/user", {
       method: "GET",
       headers: {
         Accept: "application/json",

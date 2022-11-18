@@ -90,7 +90,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.post("/createroom", async function (req, res) {
+app.post("/api/createroom", async function (req, res) {
   const roomName = req.body.roomName;
 
   try {
@@ -113,7 +113,7 @@ app.post("/createroom", async function (req, res) {
   }
 });
 
-app.post("/removeroom", function (req, res) {
+app.post("/api/removeroom", function (req, res) {
   const roomId = req.body.roomId;
 
   try {
@@ -134,7 +134,7 @@ app.post("/removeroom", function (req, res) {
   }
 });
 
-app.get("/room/:roomId", async function (req, res) {
+app.get("/api/room/:roomId", async function (req, res) {
   const roomId = req.params.roomId;
   //JOIN chat_table ON room_table.id = chat_table.roomid
   try {
@@ -154,7 +154,7 @@ app.get("/room/:roomId", async function (req, res) {
   }
 });
 
-app.get("/rooms", async function (req, res) {
+app.get("/api/rooms", async function (req, res) {
   try {
     const userId = req.user && req.user.id;
     const result = await pool.query(

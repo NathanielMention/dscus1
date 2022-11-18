@@ -6,7 +6,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 
 router.post(
-  "/register",
+  "/api/register",
   [
     //server side signup validation
     check("username")
@@ -71,7 +71,7 @@ router.post(
 );
 
 router.post(
-  "/login",
+  "/api/login",
   [
     //server side login validation
     check("username").not().isEmpty().withMessage("Username is required"),
@@ -89,7 +89,7 @@ router.post(
   }
 );
 
-router.get("/search", async (req, res) => {
+router.get("/api/search", async (req, res) => {
   try {
     const data = req.query.q;
     const users = await pool.query(
@@ -102,7 +102,7 @@ router.get("/search", async (req, res) => {
   }
 });
 
-router.get("/user", async (req, res) => {
+router.get("/api/user", async (req, res) => {
   try {
     let user = {};
     if (req.user && req.user.id)
@@ -117,7 +117,7 @@ router.get("/user", async (req, res) => {
   }
 });
 
-router.get("/getChat", async (req, res) => {
+router.get("/api/getChat", async (req, res) => {
   try {
     const chat = await pool.query(`SELECT message FROM chat_table`);
     res.json(chat);
@@ -126,11 +126,11 @@ router.get("/getChat", async (req, res) => {
   }
 });
 
-router.get("/profile", (req, res) => {
+router.get("/api/profile", (req, res) => {
   res.sendStatus(200);
 });
 
-router.get("/logout", (req, res) => {
+router.get("/api/logout", (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
