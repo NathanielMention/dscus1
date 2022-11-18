@@ -8,7 +8,7 @@ import {
 
 export async function registerUser(data) {
   try {
-    const response = await fetch("https://dscus1.herokuapp.com/register", {
+    const response = await fetch("/register", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -30,7 +30,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
-    const response = await fetch("https://dscus1.herokuapp.com/login", {
+    const response = await fetch("/login", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ export async function loginUser(data) {
 
 export async function logoutUser() {
   try {
-    const response = await fetch("https://dscus1.herokuapp.com/logout", {
+    const response = await fetch("/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -86,7 +86,7 @@ export async function logoutUser() {
 
 export async function getUser() {
   try {
-    const response = await fetch("https://dscus1.herokuapp.com/user", {
+    const response = await fetch("/user", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -107,7 +107,7 @@ export async function getUser() {
 
 export async function updateAvatar(base64EncodedImage) {
   try {
-    const response = await fetch("https://dscus1.herokuapp.com/api/upload", {
+    const response = await fetch("/api/upload", {
       method: "POST",
       body: JSON.stringify({ data: base64EncodedImage }),
       headers: { "Content-Type": "application/json" },

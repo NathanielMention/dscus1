@@ -43,7 +43,7 @@ export function createRoom(roomName) {
   return async function (dispatch) {
     dispatch(createRoomRequest());
     try {
-      const response = await fetch("https://dscus1.herokuapp.com/createroom", {
+      const response = await fetch("/createroom", {
         method: "POST",
         body: JSON.stringify({ roomName }),
         headers: {
@@ -63,7 +63,7 @@ export function createRoom(roomName) {
 export function removeRoom(roomId) {
   return async function (dispatch) {
     try {
-      await fetch("https://dscus1.herokuapp.com//removeroom", {
+      await fetch("/removeroom", {
         method: "POST",
         body: JSON.stringify({ roomId }),
         headers: {
@@ -96,17 +96,14 @@ export function joinRoom(roomId) {
   return async function (dispatch) {
     dispatch(joinRoomRequest());
     try {
-      const response = await fetch(
-        `https://dscus1.herokuapp.com/room/${roomId}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`/room/${roomId}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
       const responseData = await response.json();
       dispatch(joinRoomSuccess(responseData));
     } catch (error) {
@@ -131,7 +128,7 @@ export function getRoomsSuccess(payload) {
 export function getRooms() {
   return async function (dispatch) {
     try {
-      const response = await fetch(`https://dscus1.herokuapp.com/rooms`, {
+      const response = await fetch(`/rooms`, {
         method: "GET",
         headers: {
           Accept: "application/json",

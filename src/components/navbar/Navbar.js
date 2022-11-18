@@ -16,17 +16,14 @@ const Navbar = () => {
     setSearchTerm(e.target.value);
 
     if (e.target.value) {
-      const response = await fetch(
-        `https://dscus1.herokuapp.com/search?q=${e.target.value}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`/search?q=${e.target.value}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
 
       const parseResponse = await response.json();
       setUsers(parseResponse);
