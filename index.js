@@ -196,7 +196,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-server.listen(5001);
+server.listen(process.env.SOCKET_PORT || 5001);
 
 const port = process.env.PORT || 5000;
 
