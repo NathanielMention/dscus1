@@ -1,4 +1,4 @@
 import openSocket from "socket.io-client";
-let socket = openSocket(process.env.CLIENT_SOCKET || "/");
+let socket = openSocket();
 
 export default socket;
