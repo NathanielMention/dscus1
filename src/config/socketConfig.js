@@ -1,5 +1,7 @@
 import openSocket from "socket.io-client";
-let socket = openSocket(process.env.CLIENT_SOCKET || "http://localhost:5001");
+let socket = openSocket(
+  process.env.CLIENT_SOCKET || "https://dscus1.herokuapp.com"
+);
 /* 
 DB_USER=tifetwhqjlxwld
 DB_PASS=d9cecd6825145c91a8037d4a5c5510d5d2085d61fa902140237c24cfc7fd2540
