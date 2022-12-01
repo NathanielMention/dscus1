@@ -76,7 +76,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "st": "node index.js",
+    "st": "node --optimize_for_size --max_old_space_size=460 index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run start --prefix ../",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
