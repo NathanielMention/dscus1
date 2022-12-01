@@ -7,11 +7,9 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
-const server = require("http").createServer(app);
-const io = require("socket.io")(server, { pingTimeout: 60000 });
+const socketio = require("socket.io");
 const pgSession = require("connect-pg-simple")(session);
 const { pool } = require("./config/dbConfig");
-const { connectionString } = require("./config/dbConfig");
 const initializePassport = require("./middleware/passportConfig");
 initializePassport.initialize(passport);
 const { getChat } = require("./database/queries/rooms");
@@ -52,6 +50,12 @@ app.use(passport.session());
 //routes
 app.use("/", require("./routes/auth"));
 
+const port = process.env.PORT || 5000;
+
+const server = app.listen(port, () => {
+  console.log(`Server Listening on ${port}`);
+});
+const io = socketio(server);
 io.on("connection", (socket) => {
   socket.on("disconnect", (reason) => {});
 
@@ -195,11 +199,3 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "./build", "index.html"));
   });
 }
-
-server.listen(process.env.SOCKET_PORT || 5001);
-
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => {
-  console.log(`Server Listening on ${port}`);
-});
