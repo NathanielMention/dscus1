@@ -15,8 +15,8 @@ Dscus is a chat platform creating seamless communication between users
 
 ## Design
 
-![login](dscus1/public/login.png)
-![chat](dscus1/public/chat.png)
+![login](/Users/nathanielmention/dscus1/dscus1/public/login.png)
+![chat](/Users/nathanielmention/dscus1/dscus1/public/chat.png)
 
 ## Features
 
